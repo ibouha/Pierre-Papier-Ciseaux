@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./media/Picon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Pierre, Papier, Ciseaux</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+    }
+
+        .container {
+            text-align: center;
+        }
+
+        .choices {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .item {
+            font-size: 1.2em;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: space-around;
+            margin-top: -5px;
+        }
+
+        .choice {
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .choice:hover {
+            transform: scale(1.1);
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .score {
+            margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="score">
+            <h2>Score</h2>
+            <p id="player-score">Player: 0</p>
+            <p id="computer-score">Computer: 0</p>
+        </div>
+        <div class="choices">
+            <h2 class="mychoice item">My choice</h2>
+            <h2 class="computer item">Computer choice</h2>
+        </div>
+        <div class="result">
+            <h2>Result</h2>
+            <p id="result-text"></p>
+        </div>
+        <div class="btn">
+            <img class="choice" onclick="makeChoice('pierre')" src="./media/Pierre.png" title="Pierre" data-item="pierre">
+            <img class="choice" onclick="makeChoice('papier')" src="./media/papier.png" title="Papier"  data-item="papier">
+            <img class="choice" onclick="makeChoice('ciseaux')" src="./media/Ciseaux.png" title="Ciseaux"  data-item="ciseaux">
+        </div>
+    </div>
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+
+        function makeChoice(playerChoice) {
+            const choices = ['pierre', 'papier', 'ciseaux'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            displayChoices(playerChoice, computerChoice);
+
+            const result = determineWinner(playerChoice, computerChoice);
+            updateScore(result);
+        }
+
+        function displayChoices(playerChoice, computerChoice) {
+            document.querySelector('.mychoice').textContent = `My choice: ${playerChoice}`;
+            document.querySelector('.computer').textContent = `Computer choice: ${computerChoice}`;
+        }
+
+        function determineWinner(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) {
+                return 'draw';
+            } else if (
+                (playerChoice === 'pierre' && computerChoice === 'ciseaux') ||
+                (playerChoice === 'papier' && computerChoice === 'pierre') ||
+                (playerChoice === 'ciseaux' && computerChoice === 'papier')
+            ) {
+                return 'player';
+            } else {
+                return 'computer';
+            }
+        }
+
+        function updateScore(result) {
+            const resultText = document.getElementById('result-text');
+            const playerScoreElement = document.getElementById('player-score');
+            const computerScoreElement = document.getElementById('computer-score');
+
+            if (result === 'player') {
+                playerScore++;
+                resultText.textContent = 'You win!';
+            } else if (result === 'computer') {
+                computerScore++;
+                resultText.textContent = 'Computer wins!';
+            } else {
+                resultText.textContent = 'It\'s a draw!';
+            }
+
+            playerScoreElement.textContent = `Player: ${playerScore}`;
+            computerScoreElement.textContent = `Computer: ${computerScore}`;
+        }
+
+    </script>
+</body>
+</html>

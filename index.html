@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./media/Picon.png" type="image/x-icon">
+    <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
+            body {
+                margin: 0;
+                padding: 0;
+                background-image: url(/media/Pierre\,Papier\,ciseaux.png);
+                font-family: 'Arial', sans-serif;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+
+            }
+
+            .container {
+                
+                max-width: 900px;
+                height: 500px;
+                margin: 50px auto;
+                text-align: center;
+                background-color: rgba(240, 224, 224, 0.756);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            header {
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+
+            h1 {
+                color: #C55ABE;
+                font-family: 'Climate Crisis', sans-serif;
+                font-size: 38px;
+            }
+
+            .play{
+                padding: 10px 20px;
+                font-size: 28px;
+                font-family: 'Climate Crisis', sans-serif;
+                color: red;
+                background-color: #FFBD59;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 50px;
+                transition: 0.9s;
+            }
+
+
+            .play:hover {
+                opacity: 1;
+                background-color: #FFBD59;
+                transform: scale(1.2);
+            }
+
+            footer {
+                margin-top: 100px;
+                color: black;
+            }
+    </style>
+</head>
+<body>
+  <!--   <picture>
+        <source media="(min-width:650px)" srcset="/media/Pierre,Papier,ciseaux.png">
+        <source media="(min-width:465px)" srcset="/media/Pierre,Papier,ciseaux.png">
+        <img src="/media/Pierre,Papier,ciseaux.png" alt="Flowers" style="width:auto;">
+      </picture> -->
+
+        <div class="container">
+            <header>
+                <h1>Abtal Tech - Jeu de Papier-Ciseaux</h1>
+                <p>Bienvenue au jeu de papier-ciseaux personnalisé d'Abtal Tech !</p>
+                <p>Ce jeu est conçu pour vous offrir des moments de détente et renforcer la cohésion au sein de l'entreprise.</p>
+                <p>Lancez le défi, amusez-vous et créez un environnement de travail convivial!</p>
+            </header>
+            <main>
+                <a href="./gamepage.html" target="_blank"><button class="play">Jouer</button></a>
+                            </main>
+            <footer>
+                <p>&copy; <span id="year"></span>  Abtal Tech. Tous droits réservés.</p>
+            </footer>
+        </div>
+        <script>
+            const year=new Date().getFullYear();
+            document.getElementById('year').textContent=year;
+        </script>
+ 
+    
+    
+    
+</body>
+</html>

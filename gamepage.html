@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./media/Picon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Pierre, Papier, Ciseaux</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="score">
+            <h2>Score :</h2>
+    
+            <p id="player-score">Joueur: 0</p>
+            <p id="computer-score">Computer : 0</p>
+            
+            <button class="reset" onclick={resetScore()}>Rejouer</button>
+
+        </div>
+
+        <div class="result">
+            <h2>Resultat</h2>
+            <p id="result-text"></p>
+        </div>
+        <div class="choices">
+            <h2 class="mychoice item">Mon Choix</h2>
+            <h2 class="computer item">Computer</h2>
+        </div>
+
+        <div class="btn">
+            <div class="moves">
+                <img class="choice" onclick="makeChoice('pierre')" src="./media/Pierre.png" title="Pierre" data-item="pierre">
+                <img class="choice" onclick="makeChoice('papier')" src="./media/papier.png" title="Papier"  data-item="papier">
+                <img class="choice" onclick="makeChoice('ciseaux')" src="./media/Ciseaux.png" title="Ciseaux"  data-item="ciseaux">
+            </div>
+            <div id="amine">
+                <button id="play-again-button" onclick={playAgain()}>Play Again</button>
+            </div>
+        </div>
+        <div class="image-animation">
+            <img src="/media/pierrePlayer.png" alt="" id="playerimagechoice">
+        </div>
+        <div class="computer-image">
+            <img src="/media/pierreComputer.png" alt="" id="computeimagechoice">
+        </div>
+    </div>
+    <script src="/script.js"></script>
+
+
+
+</body>
+
+</html>
